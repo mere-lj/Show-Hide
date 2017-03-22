@@ -46,7 +46,7 @@
 			$(this).removeClass('clicker');
 			if($(this).text().slice(-1).toLowerCase()===$(this).text().slice(-1).toUpperCase()){
 				$(this).text($(this).text().slice(0,-1));
-			} //does not work for all non-letter symbols
+			} //removes last symbol if it is not a letter (not a good check, but it's simple, works just fine with both Russian and English... and I don't write in Japanese too often)
 		})
 
 		var titles=["Random Title",
