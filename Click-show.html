@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>placeholder (see JS below)</title>
+	<meta charset="utf-8">
+
+	<link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.2.0.slim.min.js" integrity="sha256-qLAv0kBAihcHZLI3fv3WITKeRsUX27hd6upBBa0MSow=" crossorigin="anonymous"></script>
+
+	<style>
+		div {margin: 40px; font-family: 'Droid Serif', serif; font-size: 20px; font-weight: 100;}
+		.content {display: none;}
+		.clicker {text-decoration: underline;}
+		.clicker:hover {cursor: pointer;}
+		a, a:hover, a:active, a:visited {color: black;}
+	</style>
+</head>
+
+<body>
+	<div>
+				<span class='content' id='r4'>Hi, don't mind all <span class='clicker' id='c5'>this.</span>
+					<span class='content' id='r5'>madness: <span class='clicker' id='c6'>crazy</span> indents and JS and CSS all jumbled into an HTML!
+						<span class='content' id='r6'><br>It's not something I'd do on a real project!</span>
+					</span>
+				<br></span>
+
+	This is just me messing around with the <span class='clicker' id='c1'>growin text idea!</span>
+		<span class='content' id='r1'> - as in a website that shows user <span class='clicker' id='c2'>more and more</span> of itself with every click.
+			<span class='content' id='r2'> Well, as long as there is <span class='clicker' id='c3'>something</span>
+				<span class='content' id='r3'> - hopefully, something cool -</span>
+			to show, anyway. <span class='clicker' id='c4'>Wherever</span>.</span>
+		</span>
+	</div>
+
+	<div>
+		Inspired by <a href="http://greaterthanorequalto.net">this</a>.
+	</div>
+
+
+
+	<script>
+		$('.clicker').on('click', function(){
+			var x = '#r'+$(this).attr('id').slice(1); //to make it more or less universal
+			$(x).css('display', 'inline');
+			$(this).removeClass('clicker');
+			if($(this).text().slice(-1).toLowerCase()===$(this).text().slice(-1).toUpperCase()){
+				$(this).text($(this).text().slice(0,-1));
+			} //does not work for all non-letter symbols
+		})
+
+		var titles=["Random Title",
+					"Extremely Random title", 
+					"Completely Random Title", 
+					"You Can't Get Any More Random Than This Title",
+					"The Most Random Title Imaginable"]
+
+		$(document).attr('title', titles[Math.floor(Math.random()*titles.length)]);
+
+	</script>
+</body>
+</html>
